@@ -36,12 +36,12 @@ A C program that creates a communication channel between two pseudo-terminal dev
     2. managing errors related to read/write operations.
   
 ### Observations and Suggestions
-**Error Handling:** The program includes basic error handling, especially in ptym_open and configure_serial, ensuring resources like file descriptors are closed in case of failure.  
-**Non-blocking I/O:** By using non-blocking I/O and select, the program efficiently waits for data to be available for reading or writing, reducing CPU usage.  
-**Data Copying Logic:** In copy_data, there's careful management of partial writes and error conditions, important for maintaining data integrity during transfer.  
+__Error Handling:__ The program includes basic error handling, especially in ptym_open and configure_serial, ensuring resources like file descriptors are closed in case of failure.  
+__Non-blocking I/O:__ By using non-blocking I/O and select, the program efficiently waits for data to be available for reading or writing, reducing CPU usage.  
+__Data Copying Logic:__ In copy_data, there's careful management of partial writes and error conditions, important for maintaining data integrity during transfer.  
 
-###Potential Improvements
-**Magic Numbers:** While BAUD_RATE is defined, there are still hardcoded values (like CS8, CLOCAL, CREAD) that could be defined as constants for clarity.  
-**Robust Error Checking:** More comprehensive error checking and handling could be implemented, especially after operations like read, write, tcsetattr, and in the main loop to handle potential failures more gracefully.  
+### Potential Improvements
+__Magic Numbers:__ While BAUD_RATE is defined, there are still hardcoded values (like CS8, CLOCAL, CREAD) that could be defined as constants for clarity.  
+__Robust Error Checking:__ More comprehensive error checking and handling could be implemented, especially after operations like read, write, tcsetattr, and in the main loop to handle potential failures more gracefully.  
 **Resource Cleanup:** Ensure that resources (e.g., file descriptors) are properly released in all error paths to prevent resource leaks.  
 **Modularity:** The program is well-structured, but further breaking down of functionality into more granular functions could improve readability and maintainability.  
