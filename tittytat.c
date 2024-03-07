@@ -8,7 +8,8 @@
 #include <termios.h>
 
 // Define constants for buffer sizes and baud rate
-#define BUF_SIZE 1024# define BAUD_RATE B9600
+#define BUF_SIZE 1024
+#define BAUD_RATE B9600
 
 // Function prototypes
 int ptym_open(char * pts_name, size_t pts_namesz);
